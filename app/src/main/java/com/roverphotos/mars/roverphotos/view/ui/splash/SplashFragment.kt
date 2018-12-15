@@ -51,8 +51,8 @@ class SplashFragment : Fragment(), MotionLayout.TransitionListener {
                 ).navigate(SplashFragmentDirections.actionSplashFragmentToChooseRoverFragment().actionId, bundle)
             } else
                 Snackbar
-                    .make(motionLayout, "onError :", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Re-try") {
+                    .make(motionLayout, resources.getText(R.string.network_error), Snackbar.LENGTH_INDEFINITE)
+                    .setAction(resources.getText(R.string.retry)) {
                         viewModel.getRoversData()
                     }
                     .show()
@@ -72,5 +72,4 @@ class SplashFragment : Fragment(), MotionLayout.TransitionListener {
     override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
         //to do nothing
     }
-
 }
