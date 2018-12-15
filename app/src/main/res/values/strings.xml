@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RoverPhotos</string>
+    <string name="splash_text">Today@Mars</string>
 </resources>

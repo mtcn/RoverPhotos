@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+            app:constraintSetEnd="@layout/splash_fragment_end"
+            app:constraintSetStart="@layout/splash_fragment"
+            app:duration="3000">
+
+        <KeyFrameSet>
+
+            <KeyAttribute
+                    android:alpha="1"
+                    motion:framePosition="20"
+                    motion:target="@id/bgImageView"/>
+
+            <KeyAttribute
+                    android:rotation="0"
+                    motion:framePosition="50"
+                    motion:target="@id/marsImageView"/>
+
+            <KeyAttribute
+                    android:rotation="30"
+                    motion:framePosition="65"
+                    motion:target="@id/marsImageView"/>
+
+            <KeyAttribute
+                    android:rotation="-30"
+                    motion:framePosition="85"
+                    motion:target="@id/marsImageView"/>
+
+            <KeyAttribute
+                    android:rotation="0"
+                    motion:framePosition="100"
+                    motion:target="@id/marsImageView"/>
+
+            <KeyAttribute
+                    android:alpha="0"
+                    motion:framePosition="20"
+                    motion:target="@id/nasaLogoImageView"/>
+
+            <KeyAttribute
+                    android:alpha="1"
+                    motion:framePosition="50"
+                    motion:target="@id/nasaLogoImageView"/>
+
+        </KeyFrameSet>
+
+    </Transition>
+
+</MotionScene>
