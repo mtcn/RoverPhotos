@@ -5,4 +5,8 @@ package com.roverphotos.mars.roverphotos.constant
  */
 
 class AppConstants {
+    companion object {
+        const val BASE_API_URL = "https://api.nasa.gov/"
+        const val API_KEY = "DEMO_KEY"
+    }
 }
