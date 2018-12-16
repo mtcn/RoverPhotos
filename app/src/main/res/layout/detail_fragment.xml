@@ -8,11 +8,31 @@
 
     <ImageView
             android:id="@+id/detailImageView"
-            android:transitionName="full_rover_photo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
             android:layout_width="0dp"
-            android:layout_height="300dp"/>
+            android:layout_height="0dp"/>
+
+    <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.45"/>
+
+    <TextView
+            android:id="@+id/photoDescription"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/photo_detail_margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/photo_description_text_size"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
 
 </android.support.constraint.ConstraintLayout>

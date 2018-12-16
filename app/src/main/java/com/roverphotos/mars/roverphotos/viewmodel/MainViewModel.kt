@@ -17,7 +17,6 @@ class MainViewModel(val roverName: String, val roverMaxDate: String) : ViewModel
 
     init {
         liveDataSource = itemDataSourceFactory.photoLiveDataSource
-        //todo fix mete when next page size is equal to zero it breaks to pagination
         val config = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
             .setInitialLoadSizeHint(MainDataSource.PAGE_SIZE * 2)

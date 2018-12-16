@@ -1,5 +1,7 @@
 package com.roverphotos.mars.roverphotos.util
 
+import android.content.Context
+import com.roverphotos.mars.roverphotos.R
 import com.roverphotos.mars.roverphotos.data.Photo
 import com.roverphotos.mars.roverphotos.data.Rover
 import java.text.SimpleDateFormat
@@ -38,10 +40,6 @@ class AppUtility {
         return getDateFormatter().format(todayDate)
     }
 
-    fun convertStringToDate(date: String): Date {
-        return getDateFormatter().parse(date)
-    }
-
     private fun convertDateToString(date: Date): String {
         return getDateFormatter().format(date)
     }
@@ -50,8 +48,12 @@ class AppUtility {
         return status == Rover.STATUS_ACTIVE
     }
 
-    fun getPhotoDescription(photo: Photo): String {
-        return "getPhotoDescription"
+    fun getPhotoDescription(context: Context, photo: Photo?): String? {
+        return "${context.getString(R.string.photo_id)} ${photo?.id}\n" +
+                "${context.getString(R.string.photo_sol)} ${photo?.sol}\n" +
+                "${context.getString(R.string.photo_earth_date)} ${photo?.earthDate}\n" +
+                "${context.getString(R.string.rover_name)} ${photo?.rover?.name}\n" +
+                "${context.getString(R.string.rover_total_photos)} ${photo?.rover?.totalPhotos}\n"
     }
 
     private fun getDateFormatter(): SimpleDateFormat {

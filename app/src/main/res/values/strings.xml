@@ -4,4 +4,9 @@
     <string name="retry">Retry</string>
     <string name="network_error">Internet connection error, please check you internet connection</string>
     <string name="no_photo_from_today"> has no photos from today. \nThese photos from </string>
+    <string name="photo_id">Photo ID: </string>
+    <string name="photo_sol">Photo SOL): </string>
+    <string name="photo_earth_date">Photo Earth Date: </string>
+    <string name="rover_name">Rover name: </string>
+    <string name="rover_total_photos">Rover total photos: </string>
 </resources>

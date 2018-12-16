@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.roverphotos.mars.roverphotos.R
 import com.roverphotos.mars.roverphotos.data.Photo
+import com.roverphotos.mars.roverphotos.util.AppUtility
 import com.roverphotos.mars.roverphotos.view.ui.main.MainFragment.Companion.END_TRANSITION_NAME
 import com.roverphotos.mars.roverphotos.view.ui.main.MainFragment.Companion.EXTRA_PHOTO_BUNDLE
 import com.roverphotos.mars.roverphotos.viewmodel.DetailViewModel
@@ -45,9 +46,14 @@ class DetailFragment : Fragment() {
             if (selectedPhoto == null)
                 return@Observer
 
-            detailImageView.transitionName = END_TRANSITION_NAME + selectedPhoto.id
-            Glide.with(this).load(selectedPhoto.image).into(detailImageView)
+            configureViews(selectedPhoto)
         })
+    }
+
+    private fun configureViews(selectedPhoto: Photo) {
+        detailImageView.transitionName = END_TRANSITION_NAME + selectedPhoto.id
+        Glide.with(this).load(selectedPhoto.image).into(detailImageView)
+        photoDescription.text = AppUtility.getInstance().getPhotoDescription(context!!, selectedPhoto)
     }
 
 }
