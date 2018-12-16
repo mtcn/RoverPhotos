@@ -11,6 +11,10 @@ This is a sample Mars Rover Photos app with using Android Architecture Component
 ## Demo
 <img src="/demo/app-demo.gif" width="40%">
 
+#
+[Download .apk file](https://github.com/mtcn/RoverPhotos/raw/master/app/release/app-release.apk)
+#
+
 ## License
 Copyright 2018 Metecan Duyal
 
