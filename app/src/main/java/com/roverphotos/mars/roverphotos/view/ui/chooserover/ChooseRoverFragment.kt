@@ -14,16 +14,12 @@ import com.roverphotos.mars.roverphotos.R
 import com.roverphotos.mars.roverphotos.data.Rover
 import com.roverphotos.mars.roverphotos.view.adapter.ChooseRoverAdapter
 import com.roverphotos.mars.roverphotos.view.callback.RoverClickListener
+import com.roverphotos.mars.roverphotos.view.ui.splash.SplashFragment.Companion.EXTRA_ROVER_DATA
 import com.roverphotos.mars.roverphotos.viewmodel.ChooseRoverViewModel
 import com.roverphotos.mars.roverphotos.viewmodel.ChooseRoverViewModelFactory
 import kotlinx.android.synthetic.main.choose_rover_fragment.*
 
 class ChooseRoverFragment : Fragment(), RoverClickListener {
-
-    companion object {
-        const val EXTRA_ROVER_DATA = "roverData"
-        fun newInstance() = ChooseRoverFragment()
-    }
 
     private lateinit var viewModel: ChooseRoverViewModel
     private lateinit var chooseRoverAdapter: ChooseRoverAdapter

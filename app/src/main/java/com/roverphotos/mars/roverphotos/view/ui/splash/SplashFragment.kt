@@ -19,7 +19,6 @@ class SplashFragment : Fragment(), MotionLayout.TransitionListener {
 
     companion object {
         const val EXTRA_ROVER_DATA = "roverData"
-        fun newInstance() = SplashFragment()
     }
 
     private lateinit var viewModel: SplashViewModel
