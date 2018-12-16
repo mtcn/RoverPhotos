@@ -72,10 +72,10 @@ class MainFragment : Fragment(), PhotoClickListener {
 
     private fun configureViews(state: State) {
         progress.visibility = if (state == State.LOADING) View.VISIBLE else View.GONE
-        if (state == State.DONE && !AppUtility.getInstance().isCurrentEarthDate(viewModel.roverMaxDate)) {
+        if (state == State.LOADING && !AppUtility.getInstance().isCurrentEarthDate(viewModel.roverMaxDate)) {
             Snackbar.make(
                 main,
-                viewModel.roverName + getString(R.string.no_photo_from_today) + viewModel.roverMaxDate,
+                "${viewModel.roverName} ${getString(R.string.no_photo_from_today)} ${viewModel.roverMaxDate}",
                 Snackbar.LENGTH_LONG
             ).show()
         }
