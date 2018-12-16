@@ -9,7 +9,7 @@ import android.arch.paging.PagedList
 import com.roverphotos.mars.roverphotos.constant.State
 import com.roverphotos.mars.roverphotos.data.Photo
 
-class MainViewModel(roverName: String, roverMaxDate: String) : ViewModel() {
+class MainViewModel(val roverName: String, val roverMaxDate: String) : ViewModel() {
 
     private var liveDataSource: MutableLiveData<MainDataSource>
     private val itemDataSourceFactory: MainDataSourceFactory = MainDataSourceFactory(roverName, roverMaxDate)

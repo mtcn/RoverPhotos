@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.arch.paging.PagedList
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.roverphotos.mars.roverphotos.R
 import com.roverphotos.mars.roverphotos.constant.State
 import com.roverphotos.mars.roverphotos.data.Photo
+import com.roverphotos.mars.roverphotos.util.AppUtility
 import com.roverphotos.mars.roverphotos.view.adapter.MainPagedListAdapter
 import com.roverphotos.mars.roverphotos.view.callback.PhotoClickListener
 import com.roverphotos.mars.roverphotos.viewmodel.MainViewModel
@@ -43,7 +45,7 @@ class MainFragment : Fragment(), PhotoClickListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        configureRecyclerView()
+        initRecyclerView()
         viewModel = ViewModelProviders.of(this, MainViewModelFactory(getSelectedRoverName(), getRoverMaxDate()))
             .get(MainViewModel::class.java)
         viewModel.apply {
@@ -54,21 +56,28 @@ class MainFragment : Fragment(), PhotoClickListener {
             getState().observe(this@MainFragment, Observer {
                 if (it == null)
                     return@Observer
-                configureProgressBar(it)
+                configureViews(it)
             })
         }
     }
 
-    private fun configureProgressBar(state: State) {
-        progress.visibility = if (state == State.LOADING) View.VISIBLE else View.GONE
-    }
-
-    private fun configureRecyclerView() {
+    private fun initRecyclerView() {
         mainAdapter = MainPagedListAdapter(context!!, this)
         mainLayoutManager = LinearLayoutManager(context)
         recyclerView.apply {
             layoutManager = mainLayoutManager
             adapter = mainAdapter
+        }
+    }
+
+    private fun configureViews(state: State) {
+        progress.visibility = if (state == State.LOADING) View.VISIBLE else View.GONE
+        if (state == State.DONE && !AppUtility.getInstance().isCurrentEarthDate(viewModel.roverMaxDate)) {
+            Snackbar.make(
+                main,
+                viewModel.roverName + getString(R.string.no_photo_from_today) + viewModel.roverMaxDate,
+                Snackbar.LENGTH_LONG
+            ).show()
         }
     }
 

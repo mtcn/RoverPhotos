@@ -3,4 +3,5 @@
     <string name="splash_text">Today@Mars</string>
     <string name="retry">Retry</string>
     <string name="network_error">Internet connection error, please check you internet connection</string>
+    <string name="no_photo_from_today"> has no photos from today. \nThese photos from </string>
 </resources>
