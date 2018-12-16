@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="@id/roverName"
             app:layout_constraintBottom_toBottomOf="@id/roverName"
             android:layout_marginEnd="@dimen/rover_item_margin"
-            android:background="@drawable/circle_shape"
+            app:srcCompat="@drawable/circle_shape"
             android:layout_width="@dimen/rover_status_circle_size"
             android:layout_height="@dimen/rover_status_circle_size"/>
 </android.support.constraint.ConstraintLayout>

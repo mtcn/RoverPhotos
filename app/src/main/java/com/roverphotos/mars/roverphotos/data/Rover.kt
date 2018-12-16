@@ -23,4 +23,9 @@ data class Rover(
     var totalPhotos: Int,
     @SerializedName("cameras")
     var cameraList: List<Camera>
-) : Serializable
+) : Serializable {
+    companion object {
+        const val STATUS_ACTIVE = "active"
+        const val STATUS_COMPLETE = "complete"
+    }
+}

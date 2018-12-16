@@ -1,6 +1,7 @@
 package com.roverphotos.mars.roverphotos.util
 
 import com.roverphotos.mars.roverphotos.data.Photo
+import com.roverphotos.mars.roverphotos.data.Rover
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -46,7 +47,7 @@ class AppUtility {
     }
 
     fun isRoverActive(status: String): Boolean {
-        return true
+        return status == Rover.STATUS_ACTIVE
     }
 
     fun getPhotoDescription(photo: Photo): String {
