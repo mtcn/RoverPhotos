@@ -31,7 +31,10 @@
               android:label="main_fragment"
               tools:layout="@layout/main_fragment">
         <action android:id="@+id/action_mainFragment_to_detailFragment"
-                app:destination="@id/detailFragment"/>
+                app:destination="@id/detailFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
         <argument android:name="roverName" app:argType="string" android:defaultValue="curiosity"/>
         <argument android:name="roverMaxDate" app:argType="string" android:defaultValue="2015-6-3"/>
     </fragment>
