@@ -9,7 +9,7 @@ This is a sample Mars Rover Photos app with using Android Architecture Component
 * Navigation ) & Retrofit & MotionLayout
 
 ## Demo
-
+<img src="/demo/app-demo.gif" width="40%">
 
 ## License
 Copyright 2018 Metecan Duyal
