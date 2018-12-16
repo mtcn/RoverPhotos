@@ -8,6 +8,19 @@
         android:layout_height="match_parent"
         tools:context=".view.ui.main.MainFragment">
 
+    <ProgressBar
+            android:id="@+id/progress"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="@dimen/main_progress_bar_size"
+            android:layout_height="@dimen/main_progress_bar_size"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:indeterminateTint="@color/main_progress_color"
+            android:indeterminateTintMode="src_in"/>
+
     <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             app:layout_constraintTop_toTopOf="parent"

@@ -14,6 +14,7 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 
 import com.roverphotos.mars.roverphotos.R
+import com.roverphotos.mars.roverphotos.constant.State
 import com.roverphotos.mars.roverphotos.data.Photo
 import com.roverphotos.mars.roverphotos.view.adapter.MainPagedListAdapter
 import com.roverphotos.mars.roverphotos.view.callback.PhotoClickListener
@@ -45,9 +46,21 @@ class MainFragment : Fragment(), PhotoClickListener {
         configureRecyclerView()
         viewModel = ViewModelProviders.of(this, MainViewModelFactory(getSelectedRoverName(), getRoverMaxDate()))
             .get(MainViewModel::class.java)
-        viewModel.itemPagedList.observe(this@MainFragment, Observer<PagedList<Photo>> {
-            mainAdapter.submitList(it)
-        })
+        viewModel.apply {
+            itemPagedList.observe(this@MainFragment, Observer<PagedList<Photo>> {
+                mainAdapter.submitList(it)
+            })
+
+            getState().observe(this@MainFragment, Observer {
+                if (it == null)
+                    return@Observer
+                configureProgressBar(it)
+            })
+        }
+    }
+
+    private fun configureProgressBar(state: State) {
+        progress.visibility = if (state == State.LOADING) View.VISIBLE else View.GONE
     }
 
     private fun configureRecyclerView() {

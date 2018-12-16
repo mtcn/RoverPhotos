@@ -1,12 +1,13 @@
 package com.roverphotos.mars.roverphotos.viewmodel
 
+import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.PageKeyedDataSource
 import android.util.Log
 import com.roverphotos.mars.roverphotos.api.NasaApi
+import com.roverphotos.mars.roverphotos.constant.State
 import com.roverphotos.mars.roverphotos.data.GetMarsPhotos
 import com.roverphotos.mars.roverphotos.data.Photo
 import com.roverphotos.mars.roverphotos.util.AppUtility
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -21,8 +22,10 @@ class MainDataSource(
     PageKeyedDataSource<Int, Photo>() {
 
     private var paginationKey = FIRST_PAGE
+    var state: MutableLiveData<State> = MutableLiveData()
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, Photo>) {
+        updateState(State.LOADING)
         GlobalScope.launch {
             val response = try {
                 getPhotos(FIRST_PAGE).await()
@@ -32,6 +35,7 @@ class MainDataSource(
             } ?: return@launch
 
             if (!response.photos.isEmpty()) {
+                updateState(State.DONE)
                 setPaginationValues(response, FIRST_PAGE)
                 callback.onResult(response.photos, null, paginationKey)
             }
@@ -48,7 +52,6 @@ class MainDataSource(
             } ?: return@launch
 
             setPaginationValues(response, params.key)
-            Log.d("API", "loadAfter: " + "size  " + response.photos.size + "key" + paginationKey + "earthDate" + roverMaxDate)
             callback.onResult(response.photos, paginationKey)
         }
     }
@@ -65,6 +68,8 @@ class MainDataSource(
             paginationKey = currentPage + 1
         }
     }
+
+    private fun updateState(state: State) = this.state.postValue(state)
 
     private fun getPhotos(page: Int) =
         NasaApi.create().getPhotos(roverName, roverMaxDate, page)
