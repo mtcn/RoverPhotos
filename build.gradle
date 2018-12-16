@@ -1,7 +1,20 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.11'
+    ext.kotlin_version = "1.3.11"
+    ext.pagingVersion = "1.0.1"
+    ext.viewModelVersion = "1.1.1"
+    ext.retrofitVersion = "2.5.0"
+    ext.glideVersion = "4.8.0"
+    ext.supportLibraryVersion = "28.0.0"
+    ext.coroutinesAdapterVersion = "0.9.2"
+    ext.coroutinesVersion = "1.0.1"
+    ext.navigationVersion = "1.0.0-alpha08"
+    ext.constraintLayoutVersion = "2.0.0-alpha2"
+    ext.okHttpLoggingVersion = "3.10.0"
+    ext.lifecycleExtVersion = "1.1.1"
+    ext.rxJavaVersion = "2.2.4"
+    ext.rxAndroidVersion = "2.1.0"
     repositories {
         google()
         jcenter()
