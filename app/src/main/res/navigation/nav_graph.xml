@@ -1,27 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
-            app:startDestination="@id/splashFragment">
+<navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/splashFragment">
 
     <fragment android:id="@+id/splashFragment"
               android:name="com.roverphotos.mars.roverphotos.view.ui.splash.SplashFragment"
-              android:label="splash_fragment" tools:layout="@layout/splash_fragment">
+              android:label="splash_fragment"
+              tools:layout="@layout/splash_fragment">
         <action android:id="@+id/action_splashFragment_to_chooseRoverFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popUpTo="@id/nav_graph"
+                app:popUpToInclusive="true"
                 app:destination="@id/chooseRoverFragment"/>
     </fragment>
+
     <fragment android:id="@+id/chooseRoverFragment"
               android:name="com.roverphotos.mars.roverphotos.view.ui.chooserover.ChooseRoverFragment"
-              android:label="choose_rover_fragment" tools:layout="@layout/choose_rover_fragment">
-        <action android:id="@+id/action_chooseRoverFragment_to_mainFragment" app:destination="@id/mainFragment"/>
+              android:label="choose_rover_fragment"
+              tools:layout="@layout/choose_rover_fragment">
+        <action android:id="@+id/action_chooseRoverFragment_to_mainFragment"
+                app:destination="@id/mainFragment"/>
     </fragment>
-    <fragment android:id="@+id/mainFragment" android:name="com.roverphotos.mars.roverphotos.view.ui.main.MainFragment"
-              android:label="main_fragment" tools:layout="@layout/main_fragment">
-        <action android:id="@+id/action_mainFragment_to_detailFragment" app:destination="@id/detailFragment"/>
+
+    <fragment android:id="@+id/mainFragment"
+              android:name="com.roverphotos.mars.roverphotos.view.ui.main.MainFragment"
+              android:label="main_fragment"
+              tools:layout="@layout/main_fragment">
+        <action android:id="@+id/action_mainFragment_to_detailFragment"
+                app:destination="@id/detailFragment"/>
+        <argument android:name="roverName" app:argType="string" android:defaultValue="curiosity"/>
+        <argument android:name="roverMaxDate" app:argType="string" android:defaultValue="2015-6-3"/>
     </fragment>
+
     <fragment android:id="@+id/detailFragment"
               android:name="com.roverphotos.mars.roverphotos.view.ui.detail.DetailFragment"
-              android:label="detail_fragment" tools:layout="@layout/detail_fragment">
-        <action android:id="@+id/action_detailFragment_to_mainFragment" app:destination="@id/mainFragment"/>
+              android:label="detail_fragment"
+              tools:layout="@layout/detail_fragment">
+        <action android:id="@+id/action_detailFragment_to_mainFragment"
+                app:destination="@id/mainFragment"/>
     </fragment>
 </navigation>

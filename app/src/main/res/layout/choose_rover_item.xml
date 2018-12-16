@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:id="@+id/roverName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/rover_item_margin"
+            android:layout_marginTop="@dimen/rover_item_margin"
+            android:layout_marginBottom="@dimen/rover_item_margin"
+            android:textSize="@dimen/rover_item_text_size"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Curiosity"/>
+
+
+    <ImageView
+            android:id="@+id/roverStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/roverName"
+            app:layout_constraintBottom_toBottomOf="@id/roverName"
+            android:layout_marginEnd="@dimen/rover_item_margin"
+            android:background="@drawable/circle_shape"
+            android:layout_width="@dimen/rover_status_circle_size"
+            android:layout_height="@dimen/rover_status_circle_size"/>
+</android.support.constraint.ConstraintLayout>
