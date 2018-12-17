@@ -7,6 +7,9 @@ This is a sample Mars Rover Photos app with using Android Architecture Component
 * Paging
 * Kotlin Coroutines
 * Navigation ) & Retrofit & MotionLayout
+## Roadmap
+ * Unit Testing v1.1
+ * Offline mode (Room) v1.2
 
 ## Demo
 <img src="/demo/app-demo.gif" width="40%">
